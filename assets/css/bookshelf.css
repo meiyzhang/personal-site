@@ -66,11 +66,11 @@
   opacity: 0; visibility: hidden;
   transition: opacity 0.3s var(--ease), visibility 0.3s var(--ease);
 }
-.book-modal.open { opacity: 1; visibility: visible; }
-.book-modal-backdrop { position: absolute; inset: 0; background: rgba(31, 41, 51, 0.35); backdrop-filter: blur(2px); }
 .book-modal-panel {
   position: relative; background: var(--paper);
   max-width: 440px; width: calc(100% - 2.5rem);
+  max-height: calc(100vh - 4rem);
+  display: flex; flex-direction: column;
   padding: var(--space-4); border-radius: 6px;
   box-shadow: 0 20px 60px -20px rgba(31, 41, 51, 0.35);
   transform: translateY(12px); transition: transform 0.3s var(--ease);
@@ -79,9 +79,24 @@
 .book-modal-close {
   position: absolute; top: var(--space-2); right: var(--space-2);
   background: none; border: none; font-size: 1.4rem; color: var(--mist); line-height: 1; padding: 0.3rem;
+  z-index: 1;
 }
 .book-modal-close:hover { color: var(--slate); }
-.book-modal-title { font-size: 1.7rem; margin: 0.3rem 0 0.2rem; }
+
+.book-modal-status,
+.book-modal-title,
+.book-modal-author,
+.book-modal-rating { flex-shrink: 0; }
+.book-modal-title { font-size: 1.7rem; margin: 0.3rem 0 0.2rem; padding-right: var(--space-3); }
 .book-modal-author { font-size: 0.95rem; margin-bottom: 0.4rem; }
 .book-modal-rating { color: var(--steel); letter-spacing: 0.05em; font-size: 0.95rem; }
-.book-modal-review { margin-top: var(--space-2); }
+
+.book-modal-review {
+  margin-top: var(--space-2);
+  overflow-y: auto;
+  padding-right: var(--space-2);
+  mask-image: linear-gradient(to bottom, #000 calc(100% - 18px), transparent 100%);
+}
+.book-modal-review::-webkit-scrollbar { width: 6px; }
+.book-modal-review::-webkit-scrollbar-thumb { background: var(--hairline); border-radius: 3px; }
+.book-modal-review::-webkit-scrollbar-track { background: transparent; }
