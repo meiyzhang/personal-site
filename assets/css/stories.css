@@ -1,0 +1,78 @@
+/* ============================================================
+   RECENT STORIES — Tokyo-blog inspired
+   ============================================================ */
+
+/* big overlapping headline over the banner image */
+.stories-hero { padding: var(--space-5) 0 0; }
+.stories-bigtitle {
+  font-size: clamp(3rem, 11vw, 8rem);
+  line-height: 0.9;
+  color: var(--slate);
+  position: relative;
+  z-index: 2;
+  margin-bottom: -0.18em;   /* pull the banner up so the title overlaps it */
+}
+.stories-hero-img {
+  position: relative;
+  z-index: 1;
+}
+
+/* now-playing + welcome */
+.stories-intro { padding: var(--space-5) 0 var(--space-4); }
+.stories-intro-grid {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--space-4); flex-wrap: wrap;
+}
+.stories-welcome { text-align: right; }
+.date-chips { display: flex; gap: 0.5rem; justify-content: flex-end; margin-bottom: 0.5rem; }
+.chip {
+  font-size: 0.74rem; letter-spacing: 0.04em; color: var(--mist);
+  border: 1px solid var(--hairline); border-radius: 999px; padding: 0.3rem 0.9rem;
+}
+@media (max-width: 640px) {
+  .stories-welcome { text-align: left; }
+  .date-chips { justify-content: flex-start; }
+}
+
+/* three rounded photo cards */
+.story-cards { padding: var(--space-3) 0 var(--space-5); }
+.story-card-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-3); }
+.story-card h3 { font-size: 1.2rem; margin: var(--space-2) 0 0.3rem; }
+@media (max-width: 760px) { .story-card-row { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; } }
+
+/* swatch strip */
+.swatch-section { padding: var(--space-3) 0; }
+.swatch-row { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); flex-wrap: wrap; }
+.swatch-row .swatch-bar { border: none; flex: 1; min-width: 260px; }
+.about-link { font-size: 0.82rem; color: var(--steel); letter-spacing: 0.03em; border-bottom: 1px solid var(--hairline); padding-bottom: 2px; }
+
+/* NOTEBOOK */
+.notebook { padding: var(--space-5) 0; }
+.notebook-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: var(--space-5); align-items: start; }
+.notebook-title { font-size: 2rem; letter-spacing: 0.04em; }
+.notebook-text .body-text { margin-bottom: var(--space-2); }
+.hashtags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: var(--space-3); }
+.notebook-media { position: relative; }
+.quote-bubble {
+  background: var(--paper);
+  border: 1px solid var(--hairline-soft);
+  border-radius: 16px 16px 16px 4px;
+  padding: var(--space-2) var(--space-3);
+  margin-top: -28px;
+  margin-left: var(--space-4);
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 12px 30px -20px rgba(43,58,74,0.3);
+}
+@media (max-width: 860px) {
+  .notebook-grid { grid-template-columns: 1fr; gap: var(--space-4); }
+  .notebook-media { max-width: 360px; }
+}
+
+/* diary feed */
+.stories-feed-section { padding: var(--space-4) 0 var(--space-6); }
+.stories-feed { max-width: 760px; }
+.story-entry h2 { margin: var(--space-1) 0 var(--space-2); }
+.story-meta { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-1); }
+.story-date { font-family: var(--font-display); font-style: italic; color: var(--steel); font-size: 1rem; }
+.story-tags { display: flex; gap: 0.4rem; }

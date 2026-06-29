@@ -1,0 +1,87 @@
+/* ============================================================
+   BOOKSHELF PAGE
+   ============================================================ */
+
+/* featured currently-reading */
+.featured-book {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: var(--space-4);
+  align-items: center;
+}
+.featured-cover { box-shadow: 0 16px 36px -22px rgba(43,58,74,0.4); }
+.featured-meta h2 { font-size: 2rem; margin: 0.2rem 0 0.1rem; }
+@media (max-width: 600px) {
+  .featured-book { grid-template-columns: 110px 1fr; gap: var(--space-3); }
+  .featured-meta h2 { font-size: 1.5rem; }
+}
+
+.section-label { font-style: italic; font-size: 1.6rem; color: var(--steel); margin-bottom: var(--space-3); }
+
+.shelf-section { padding: var(--space-2) 0; }
+
+.shelf-row {
+  display: flex; flex-wrap: wrap; align-items: flex-end; gap: var(--space-2);
+  padding-bottom: var(--space-2);
+  border-bottom: 2px solid var(--slate);
+  position: relative;
+}
+.shelf-row::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: -6px; height: 6px;
+  background: linear-gradient(to bottom, rgba(43,58,74,0.06), transparent);
+}
+
+.book-spine {
+  width: 56px; height: 220px;
+  background: var(--spine-color, var(--steel));
+  border: none; border-radius: 2px 2px 0 0;
+  display: flex; flex-direction: column; justify-content: space-between; align-items: center;
+  padding: var(--space-3) 0.4rem;
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+}
+.book-spine:hover { transform: translateY(-6px); box-shadow: 0 10px 16px -8px rgba(43, 58, 74, 0.35); }
+
+.spine-title {
+  writing-mode: vertical-rl; text-orientation: mixed;
+  font-family: var(--font-display); font-size: 0.82rem; color: var(--bone);
+  letter-spacing: 0.02em; line-height: 1.3; max-height: 160px; overflow: hidden;
+}
+.spine-author {
+  writing-mode: vertical-rl; text-orientation: mixed;
+  font-size: 0.62rem; color: var(--bone); opacity: 0.75; letter-spacing: 0.04em;
+}
+
+.shelf-hint { margin-top: var(--space-3); }
+
+@media (max-width: 700px) {
+  .book-spine { width: 46px; height: 180px; }
+  .spine-title { font-size: 0.72rem; max-height: 130px; }
+}
+
+/* ---- modal ---- */
+.book-modal {
+  position: fixed; inset: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.3s var(--ease), visibility 0.3s var(--ease);
+}
+.book-modal.open { opacity: 1; visibility: visible; }
+.book-modal-backdrop { position: absolute; inset: 0; background: rgba(31, 41, 51, 0.35); backdrop-filter: blur(2px); }
+.book-modal-panel {
+  position: relative; background: var(--paper);
+  max-width: 440px; width: calc(100% - 2.5rem);
+  padding: var(--space-4); border-radius: 6px;
+  box-shadow: 0 20px 60px -20px rgba(31, 41, 51, 0.35);
+  transform: translateY(12px); transition: transform 0.3s var(--ease);
+}
+.book-modal.open .book-modal-panel { transform: translateY(0); }
+.book-modal-close {
+  position: absolute; top: var(--space-2); right: var(--space-2);
+  background: none; border: none; font-size: 1.4rem; color: var(--mist); line-height: 1; padding: 0.3rem;
+}
+.book-modal-close:hover { color: var(--slate); }
+.book-modal-title { font-size: 1.7rem; margin: 0.3rem 0 0.2rem; }
+.book-modal-author { font-size: 0.95rem; margin-bottom: 0.4rem; }
+.book-modal-rating { color: var(--steel); letter-spacing: 0.05em; font-size: 0.95rem; }
+.book-modal-review { margin-top: var(--space-2); }

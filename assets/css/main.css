@@ -1,0 +1,342 @@
+/* ============================================================
+   MEGAN ZHANG — personal site
+   Design language: "poetic simplicity"
+   Palette: warm white / slate blue / steel blue / grey-blue
+   Type: Cormorant Garamond (display) + Work Sans (body)
+         + Pinyon Script (rare accent flourish)
+   Signature graphic: flowing contour-line fields (topographic
+   meets wind/water) developed as custom SVG art.
+   ============================================================ */
+
+:root {
+  /* ---- color ---- */
+  --bone:        #FAFAF9;
+  --paper:       #FFFFFF;
+  --ink:         #1F2933;
+  --slate:       #2B3A4A;
+  --steel:       #5C7A8A;
+  --mist:        #8B98A0;
+  --hairline:    #C8D2D8;
+  --hairline-soft: #E3E8EA;
+  --wash:        #F1F4F5;
+
+  /* ---- type ---- */
+  --font-display: 'Cormorant Garamond', 'Times New Roman', serif;
+  --font-body: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-script: 'Pinyon Script', 'Cormorant Garamond', cursive;
+
+  /* ---- spacing ---- */
+  --space-1: 0.5rem;  --space-2: 1rem;   --space-3: 1.5rem;
+  --space-4: 2.5rem;  --space-5: 4rem;   --space-6: 6rem;  --space-7: 9rem;
+
+  /* ---- layout ---- */
+  --content-max: 1080px;
+  --content-narrow: 720px;
+  --nav-height: 88px;
+
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================================ RESET */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+img, svg { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+h1, h2, h3, h4, p { margin: 0; }
+html { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background: var(--bone);
+  color: var(--slate);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: var(--hairline); color: var(--ink); }
+:focus-visible { outline: 2px solid var(--steel); outline-offset: 3px; border-radius: 2px; }
+
+/* ============================================================ TYPE */
+.font-display { font-family: var(--font-display); }
+.font-script { font-family: var(--font-script); }
+
+h1, h2, h3, .display {
+  font-family: var(--font-display);
+  font-weight: 500;
+  color: var(--slate);
+  letter-spacing: 0.01em;
+}
+h1 { font-size: clamp(2.6rem, 6vw, 4.4rem); line-height: 1.08; }
+h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); line-height: 1.25; }
+h3 { font-size: 1.3rem; line-height: 1.4; }
+
+.script-accent {
+  font-family: var(--font-script);
+  color: var(--steel);
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1;
+  font-weight: 400;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--steel);
+  font-weight: 500;
+}
+
+.lede {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.35rem;
+  color: var(--steel);
+  line-height: 1.5;
+}
+
+.body-text { color: var(--slate); font-size: 1rem; line-height: 1.75; }
+.muted { color: var(--mist); }
+.small { font-size: 0.85rem; color: var(--mist); }
+
+/* ============================================================ LAYOUT */
+.wrap { max-width: var(--content-max); margin: 0 auto; padding: 0 var(--space-4); }
+.wrap-narrow { max-width: var(--content-narrow); margin: 0 auto; padding: 0 var(--space-4); }
+@media (max-width: 640px) { .wrap, .wrap-narrow { padding: 0 var(--space-3); } }
+section { padding: var(--space-6) 0; }
+
+/* ============================================================ NAV */
+.site-nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(250, 250, 249, 0.88);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--hairline-soft);
+}
+.site-nav .wrap {
+  display: flex; align-items: center; justify-content: space-between;
+  height: var(--nav-height);
+}
+.wordmark {
+  font-family: var(--font-display);
+  font-size: 1.4rem; font-style: italic;
+  color: var(--slate); letter-spacing: 0.02em;
+}
+.nav-links { display: flex; gap: var(--space-4); }
+.nav-links a {
+  font-size: 0.85rem; letter-spacing: 0.04em; color: var(--mist);
+  position: relative; padding-bottom: 4px; transition: color 0.25s var(--ease);
+}
+.nav-links a:hover { color: var(--steel); }
+.nav-links a.active { color: var(--slate); }
+.nav-links a.active::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: -2px;
+  height: 1px; background: var(--steel);
+}
+.nav-toggle { display: none; background: none; border: none; flex-direction: column; gap: 5px; padding: 8px; }
+.nav-toggle span { width: 22px; height: 1px; background: var(--slate); display: block; }
+
+@media (max-width: 760px) {
+  .nav-links {
+    position: absolute; top: var(--nav-height); left: 0; right: 0;
+    background: var(--bone); border-bottom: 1px solid var(--hairline-soft);
+    flex-direction: column; gap: 0; max-height: 0; overflow: hidden;
+    transition: max-height 0.3s var(--ease);
+  }
+  .nav-links.open { max-height: 400px; }
+  .nav-links a { padding: var(--space-2) var(--space-3); width: 100%; }
+  .nav-toggle { display: flex; }
+}
+
+/* ============================================================
+   SIGNATURE — the "breathing rule" (hairline + drifting dot)
+   ============================================================ */
+.breathing-rule {
+  position: relative; height: 1px; background: var(--hairline);
+  margin: var(--space-5) 0; overflow: visible;
+}
+.breathing-rule::after {
+  content: ''; position: absolute; top: 50%; left: 0;
+  width: 5px; height: 5px; margin-top: -2.5px; border-radius: 50%;
+  background: var(--steel); animation: drift 7s ease-in-out infinite;
+}
+@keyframes drift {
+  0%   { left: 0%;   opacity: 0.2; }
+  50%  { left: 96%;  opacity: 0.9; }
+  100% { left: 0%;   opacity: 0.2; }
+}
+.breathing-rule.short { width: 64px; margin: var(--space-3) 0; }
+@media (prefers-reduced-motion: reduce) {
+  .breathing-rule::after { animation: none; left: 0; opacity: 0.6; }
+}
+
+/* ============================================================ BUTTONS / PILLS / TAGS */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.65rem 1.4rem; border-radius: 999px;
+  font-size: 0.85rem; letter-spacing: 0.02em;
+  border: 1px solid var(--slate); color: var(--slate);
+  background: transparent; transition: all 0.25s var(--ease);
+}
+.btn:hover { background: var(--slate); color: var(--bone); }
+.btn-solid { background: var(--slate); color: var(--bone); border-color: var(--slate); }
+.btn-solid:hover { background: var(--steel); border-color: var(--steel); }
+
+/* small pill like the ART "See More" */
+.pill {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  padding: 0.5rem 1.2rem; border-radius: 999px;
+  font-size: 0.76rem; letter-spacing: 0.06em;
+  background: var(--slate); color: var(--bone);
+  border: 1px solid var(--slate);
+  transition: all 0.25s var(--ease);
+}
+.pill:hover { background: transparent; color: var(--slate); }
+.pill.ghost { background: transparent; color: var(--slate); }
+.pill.ghost:hover { background: var(--slate); color: var(--bone); }
+
+.tag {
+  display: inline-block; font-size: 0.72rem; letter-spacing: 0.04em;
+  color: var(--steel); background: var(--wash);
+  border-radius: 999px; padding: 0.3rem 0.8rem;
+}
+.hashtag {
+  display: inline-block; font-size: 0.78rem; letter-spacing: 0.02em;
+  color: var(--steel); border: 1px solid var(--hairline);
+  border-radius: 999px; padding: 0.35rem 0.9rem;
+  transition: all 0.25s var(--ease);
+}
+.hashtag:hover { background: var(--wash); border-color: var(--steel); }
+
+/* ============================================================
+   IMAGE SLOT — an open, designed placeholder for real photos
+   Usage: <div class="img-slot" style="--ratio: 4/5;"> ... </div>
+   Drop an <img> in to replace; the slot styling falls away.
+   ============================================================ */
+.img-slot {
+  position: relative;
+  aspect-ratio: var(--ratio, 4 / 3);
+  border-radius: 4px;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, var(--wash) 0%, #E8EDEF 55%, var(--hairline-soft) 100%);
+  border: 1px solid var(--hairline-soft);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+}
+.img-slot > img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
+}
+.img-slot-mark {
+  width: 38px; height: 38px; color: var(--steel); opacity: 0.7;
+}
+.img-slot-label {
+  font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--steel); opacity: 0.75;
+}
+.img-slot.round { border-radius: 18px; }
+
+/* ============================================================
+   PALETTE-SWATCH BAR (echoes the Tokyo-blog colour strip)
+   ============================================================ */
+.swatch-bar {
+  display: flex; align-items: center; gap: var(--space-3);
+  flex-wrap: wrap;
+  padding: var(--space-2) 0;
+  border-top: 1px solid var(--hairline-soft);
+  border-bottom: 1px solid var(--hairline-soft);
+}
+.swatch { display: flex; align-items: center; gap: 0.6rem; }
+.swatch-dot {
+  width: 22px; height: 22px; border-radius: 50%;
+  border: 1px solid var(--hairline);
+}
+.swatch-hex { font-size: 0.74rem; letter-spacing: 0.06em; color: var(--mist); }
+
+/* ============================================================
+   "NOW" CARD (echoes the Tokyo "NOW PLAYING" widget)
+   ============================================================ */
+.now-card {
+  display: flex; align-items: center; gap: var(--space-2);
+  padding: var(--space-2);
+  border: 1px solid var(--hairline-soft);
+  border-radius: 16px;
+  background: var(--paper);
+  max-width: 340px;
+}
+.now-card .now-thumb {
+  flex-shrink: 0; width: 64px; height: 64px; border-radius: 10px;
+  --ratio: 1 / 1;
+}
+.now-card .now-meta .eyebrow { margin-bottom: 0.2rem; }
+.now-card .now-title { font-family: var(--font-display); font-size: 1.15rem; color: var(--slate); }
+.now-card .now-sub { font-size: 0.8rem; color: var(--mist); }
+
+/* ============================================================ FOOTER / SOCIAL */
+.site-footer { border-top: 1px solid var(--hairline-soft); padding: var(--space-4) 0; }
+.social-tab { display: flex; justify-content: center; gap: var(--space-4); flex-wrap: wrap; }
+.social-tab a {
+  font-size: 0.8rem; letter-spacing: 0.05em; color: var(--mist);
+  transition: color 0.25s var(--ease);
+}
+.social-tab a:hover { color: var(--steel); }
+.footer-note { text-align: center; margin-top: var(--space-3); font-size: 0.75rem; color: var(--hairline); }
+
+/* ============================================================ LOADER (hopping rabbit) */
+.loader {
+  position: fixed; inset: 0; z-index: 9999; background: var(--bone);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: var(--space-3);
+  transition: opacity 0.5s var(--ease), visibility 0.5s var(--ease);
+}
+.loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+.loader-rabbit { width: 64px; height: 64px; }
+.loader-rabbit img, .loader-rabbit svg {
+  width: 100%; height: 100%;
+  animation: hop 0.9s var(--ease) infinite;
+}
+@keyframes hop {
+  0%   { transform: translateY(0) scaleY(1); }
+  20%  { transform: translateY(-2px) scaleY(1.04); }
+  45%  { transform: translateY(-22px) scaleY(0.96); }
+  65%  { transform: translateY(0) scaleY(0.9); }
+  100% { transform: translateY(0) scaleY(1); }
+}
+.loader-track { width: 120px; height: 1px; background: var(--hairline-soft); position: relative; overflow: hidden; }
+.loader-track::after {
+  content: ''; position: absolute; top: 0; left: -40%; width: 40%; height: 100%;
+  background: var(--steel); animation: track-sweep 0.9s ease-in-out infinite;
+}
+@keyframes track-sweep { 0% { left: -40%; } 100% { left: 100%; } }
+.loader-label { font-family: var(--font-display); font-style: italic; font-size: 0.95rem; color: var(--mist); letter-spacing: 0.02em; }
+@media (prefers-reduced-motion: reduce) {
+  .loader-rabbit img, .loader-rabbit svg { animation: none; }
+  .loader-track::after { animation: none; left: 0; width: 100%; opacity: 0.5; }
+}
+
+/* ============================================================ SCROLL REVEAL */
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+/* ============================================================ SHARED SUB-PAGE HEADER */
+.page-header { padding: var(--space-6) 0 var(--space-4); }
+.page-header.bordered { border-bottom: 1px solid var(--hairline-soft); margin-bottom: var(--space-5); }
+.page-header h1 { margin: var(--space-1) 0 var(--space-2); }
+.page-header .lede { max-width: 640px; }
+.page-header.center { text-align: center; }
+.page-header.center .lede { margin-left: auto; margin-right: auto; }

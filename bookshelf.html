@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bookshelf — Megan Zhang</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Pinyon+Script&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="assets/css/bookshelf.css">
+</head>
+<body>
+
+<div class="loader" aria-hidden="true">
+  <div class="loader-rabbit"><img src="assets/img/rabbit.svg" alt=""></div>
+  <div class="loader-track"></div>
+  <p class="loader-label">just a moment</p>
+</div>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="wordmark">Megan Zhang</a>
+    <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    <div class="nav-links">
+      <a href="index.html">Main</a>
+      <a href="projects.html">Projects</a>
+      <a href="writing.html">Writing</a>
+      <a href="stories.html">Recent Stories</a>
+      <a href="bookshelf.html" class="active">Bookshelf</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="wrap">
+    <p class="eyebrow">A shelf that grows</p>
+    <h1>Bookshelf</h1>
+    <p class="lede">Currently reading, recent reads, and the few you keep returning to. Tap a spine for the review.</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <!-- FEATURED currently-reading -->
+    <section class="featured-book reveal">
+      <div class="img-slot featured-cover" style="--ratio: 2 / 3;">
+        <svg class="img-slot-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.6"/><path d="M3 16 l5-4 4 3 3-3 6 5"/></svg>
+        <span class="img-slot-label">cover</span>
+      </div>
+      <div class="featured-meta">
+        <p class="eyebrow">Currently reading</p>
+        <h2 class="font-display">Book Title</h2>
+        <p class="muted">[ author ]</p>
+        <div class="breathing-rule short"></div>
+        <p class="body-text muted">A placeholder note on the book in progress — what drew you to it, or what it's making you think about. A sentence or two.</p>
+      </div>
+    </section>
+
+    <div class="breathing-rule"></div>
+
+    <!-- CURRENTLY READING shelf -->
+    <section class="shelf-section">
+      <h2 class="section-label font-display">Currently Reading</h2>
+      <div class="shelf-row">
+        <button class="book-spine reveal" style="--spine-color:#5C7A8A;" data-title="Book Title" data-author="Author Name" data-status="Currently reading" data-rating="" data-review="A placeholder review. Replace this with your own note on the book — what it's about, what it's doing for you.">
+          <span class="spine-title">Book Title</span><span class="spine-author">Author</span>
+        </button>
+        <button class="book-spine reveal" style="--spine-color:#8B98A0;" data-title="Book Title" data-author="Author Name" data-status="Currently reading" data-rating="" data-review="A placeholder review. Replace this with your own note on the book — what it's about, what it's doing for you.">
+          <span class="spine-title">Book Title</span><span class="spine-author">Author</span>
+        </button>
+      </div>
+    </section>
+
+    <div class="breathing-rule"></div>
+
+    <!-- FAVORITES shelf -->
+    <section class="shelf-section">
+      <h2 class="section-label font-display">Favorites</h2>
+      <div class="shelf-row">
+        <button class="book-spine reveal" style="--spine-color:#2B3A4A;" data-title="Book Title" data-author="Author Name" data-status="Favorite" data-rating="★★★★★" data-review="A placeholder review for a favorite — the book you return to, and why.">
+          <span class="spine-title">Book Title</span><span class="spine-author">Author</span>
+        </button>
+        <button class="book-spine reveal" style="--spine-color:#5C7A8A;" data-title="Book Title" data-author="Author Name" data-status="Favorite" data-rating="★★★★★" data-review="A placeholder review for a favorite — the book you return to, and why.">
+          <span class="spine-title">Book Title</span><span class="spine-author">Author</span>
+        </button>
+        <button class="book-spine reveal" style="--spine-color:#1F2933;" data-title="Book Title" data-author="Author Name" data-status="Favorite" data-rating="★★★★★" data-review="A placeholder review for a favorite — the book you return to, and why.">
+          <span class="spine-title">Book Title</span><span class="spine-author">Author</span>
+        </button>
+      </div>
+    </section>
+
+    <div class="breathing-rule"></div>
+
+    <!-- RECENT READS shelf -->
+    <section class="shelf-section">
+      <h2 class="section-label font-display">Recent Reads</h2>
+      <div class="shelf-row">
+        <button class="book-spine reveal" style="--spine-color:#8B98A0;" data-title="Book Title" data-author="Author Name" data-status="Read" data-rating="★★★★☆" data-review="A placeholder review. A line or two on what you took from it.">
+          <span class="spine-title">Book Title</span><span class="spine-author">Author</span>
+        </button>
+        <button class="book-spine reveal" style="--spine-color:#C8D2D8;" data-title="Book Title" data-author="Author Name" data-status="Read" data-rating="★★★★★" data-review="A placeholder review. A line or two on what you took from it.">
+          <span class="spine-title">Book Title</span><span class="spine-author">Author</span>
+        </button>
+        <button class="book-spine reveal" style="--spine-color:#5C7A8A;" data-title="Book Title" data-author="Author Name" data-status="Read" data-rating="★★★★☆" data-review="A placeholder review. A line or two on what you took from it.">
+          <span class="spine-title">Book Title</span><span class="spine-author">Author</span>
+        </button>
+        <button class="book-spine reveal" style="--spine-color:#2B3A4A;" data-title="Book Title" data-author="Author Name" data-status="Read" data-rating="★★★☆☆" data-review="A placeholder review. A line or two on what you took from it.">
+          <span class="spine-title">Book Title</span><span class="spine-author">Author</span>
+        </button>
+      </div>
+      <p class="shelf-hint small">The shelf grows as you add books — each spine is a button with its own title, author, rating, and review.</p>
+    </section>
+
+  </div>
+</main>
+
+<!-- BOOK DETAIL MODAL -->
+<div class="book-modal" aria-hidden="true">
+  <div class="book-modal-backdrop"></div>
+  <div class="book-modal-panel" role="dialog" aria-modal="true">
+    <button class="book-modal-close" aria-label="Close">×</button>
+    <p class="book-modal-status eyebrow"></p>
+    <h3 class="book-modal-title font-display"></h3>
+    <p class="book-modal-author muted"></p>
+    <p class="book-modal-rating"></p>
+    <div class="breathing-rule short"></div>
+    <p class="book-modal-review body-text"></p>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <nav class="social-tab" aria-label="Social links">
+      <a href="#" target="_blank" rel="noopener">Beli</a>
+      <a href="#" target="_blank" rel="noopener">GitHub</a>
+      <a href="#" target="_blank" rel="noopener">Goodreads</a>
+      <a href="#" target="_blank" rel="noopener">Letterboxd</a>
+      <a href="#" target="_blank" rel="noopener">Substack</a>
+    </nav>
+    <p class="footer-note">Megan Zhang — 2026</p>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script src="assets/js/bookshelf.js"></script>
+</body>
+</html>
