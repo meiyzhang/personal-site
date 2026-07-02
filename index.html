@@ -35,13 +35,48 @@
 
 <!-- ===================== HERO ===================== -->
 <header class="hero">
-  <img class="hero-graphic" src="assets/img/flow-hero.svg" alt="" aria-hidden="true">
+  <div class="hero-flower-wrap" aria-hidden="true">
+    <svg class="hero-flower" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <path id="petal-outer" d="M300,300 C267.0,239.8 270.3,165.8 300,128 C329.7,165.8 333.0,239.8 300,300 Z"/>
+        <path id="petal-inner" d="M300,300 C276.0,263.6 278.4,218.9 300,196 C321.6,218.9 324.0,263.6 300,300 Z"/>
+      </defs>
+      <g class="flower-pulse">
+        <g class="flower-bloom">
+          <g class="petal outer" style="--angle:0.0deg; --delay:0.0s;"><use href="#petal-outer"/></g>
+          <g class="petal outer" style="--angle:51.43deg; --delay:0.045s;"><use href="#petal-outer"/></g>
+          <g class="petal outer" style="--angle:102.86deg; --delay:0.09s;"><use href="#petal-outer"/></g>
+          <g class="petal outer" style="--angle:154.29deg; --delay:0.135s;"><use href="#petal-outer"/></g>
+          <g class="petal outer" style="--angle:205.71deg; --delay:0.18s;"><use href="#petal-outer"/></g>
+          <g class="petal outer" style="--angle:257.14deg; --delay:0.225s;"><use href="#petal-outer"/></g>
+          <g class="petal outer" style="--angle:308.57deg; --delay:0.27s;"><use href="#petal-outer"/></g>
+
+          <g class="petal inner" style="--angle:15.0deg; --delay:0.25s;"><use href="#petal-inner"/></g>
+          <g class="petal inner" style="--angle:75.0deg; --delay:0.295s;"><use href="#petal-inner"/></g>
+          <g class="petal inner" style="--angle:135.0deg; --delay:0.34s;"><use href="#petal-inner"/></g>
+          <g class="petal inner" style="--angle:195.0deg; --delay:0.385s;"><use href="#petal-inner"/></g>
+          <g class="petal inner" style="--angle:255.0deg; --delay:0.43s;"><use href="#petal-inner"/></g>
+          <g class="petal inner" style="--angle:315.0deg; --delay:0.475s;"><use href="#petal-inner"/></g>
+
+          <circle class="flower-center" cx="300" cy="300" r="15"/>
+          <g class="flower-stamens">
+            <line x1="300" y1="300" x2="300" y2="286"/>
+            <line x1="300" y1="300" x2="312" y2="292"/>
+            <line x1="300" y1="300" x2="318" y2="303"/>
+            <line x1="300" y1="300" x2="310" y2="312"/>
+            <line x1="300" y1="300" x2="292" y2="313"/>
+            <line x1="300" y1="300" x2="282" y2="303"/>
+            <line x1="300" y1="300" x2="288" y2="290"/>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </div>
   <div class="wrap hero-grid">
     <div class="hero-copy reveal">
       <p class="eyebrow">[Georgetown University * Economics & Mathematics]</p>
       <h1>Megan&nbsp;Zhang</h1>
       <p class="script-accent">Thanks for dropping by. </p>
-      <p class="lede"></p>
       <div class="breathing-rule short"></div>
       <p class="body-text muted">
         I'm currently a student at <b>Georgetown University majoring in Economics and Mathematics</b> and 
@@ -51,7 +86,7 @@
         quantum theory, where my work has been centered mainly on the <i>optimisation of complex systems under constraint</i> and <i>macro-financial structure
         under policy and geopolitical shifts.</i>       
       </p>
-      <pclass="body-text muted"> Outside the classroom, I am always seeking to understand the world around me through storymaking: studying relation and interaction
+      <p class="body-text muted"> Outside the classroom, I am always seeking to understand the world around me through storymaking: studying relation and interaction
         through <i>acting</i>; artistic form and meaning through my <i>poetry</i>; and always, grounding myself in service of empathy through <i>reading and film</i>. 
       </p>
 
@@ -75,6 +110,7 @@
   </div>
 </header>
 
+<main>
   <!-- ===================== EXPLORE ===================== -->
   <section class="explore-section">
     <div class="wrap">
