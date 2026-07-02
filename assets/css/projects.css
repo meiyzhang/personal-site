@@ -1,0 +1,76 @@
+/* ============================================================
+   PROJECTS PAGE — ART-gallery style
+   ============================================================ */
+.gallery { padding-top: var(--space-2); padding-bottom: var(--space-6); }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+.gallery-card {
+  background: var(--paper);
+  border: 1px solid var(--hairline-soft);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.gallery-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px -24px rgba(43, 58, 74, 0.35);
+}
+
+/* the image slot sits flush at the top of the card */
+.gallery-card .img-slot {
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid var(--hairline-soft);
+}
+
+.gallery-body {
+  text-align: center;
+  padding: var(--space-3) var(--space-3) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+.gallery-body h3 { font-size: 1.4rem; }
+.card-meta { font-size: 0.78rem; color: var(--mist); letter-spacing: 0.04em; }
+.gallery-body .see-more { margin-top: var(--space-2); }
+
+/* expandable detail */
+.gallery-detail { max-height: 0; overflow: hidden; transition: max-height 0.4s var(--ease); }
+.gallery-detail-inner {
+  padding: 0 var(--space-3) var(--space-4);
+  text-align: center;
+}
+.gallery-detail-inner .body-text { margin-bottom: var(--space-2); }
+.project-tags {
+  display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center;
+  margin: var(--space-2) 0 var(--space-3);
+}
+.project-links { display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; }
+
+@media (max-width: 860px) { .gallery-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .gallery-grid { grid-template-columns: 1fr; } }
+
+/* pager dots */
+.gallery-pager {
+  display: flex; justify-content: center; gap: 0.5rem;
+  margin-top: var(--space-5);
+}
+.gallery-pager .dot {
+  width: 24px; height: 2px; background: var(--hairline); border-radius: 2px;
+}
+.gallery-pager .dot.active { background: var(--steel); }
+
+.view-all {
+  text-align: center; margin-top: var(--space-3);
+  font-family: var(--font-display); font-style: italic; font-size: 1.1rem;
+}
+.view-all a { color: var(--slate); border-bottom: 1px solid var(--hairline); padding-bottom: 2px; }
+.view-all a:hover { color: var(--steel); }
