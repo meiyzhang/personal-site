@@ -1,0 +1,312 @@
+/* ============================================================
+   RECENT STORIES — Tokyo-blog inspired
+   ============================================================ */
+
+/* big overlapping headline over the banner image */
+.stories-hero { padding: var(--space-5) 0 0; }
+.stories-bigtitle {
+  font-size: clamp(3rem, 11vw, 8rem);
+  line-height: 0.9;
+  color: var(--slate);
+  position: relative;
+  z-index: 2;
+  margin-bottom: -0.18em;   /* pull the banner up so the title overlaps it */
+}
+.stories-hero-img {
+  position: relative;
+  z-index: 1;
+  aspect-ratio: var(--ratio, 16 / 6);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--wash);
+}
+.stories-hero-video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+/* faint bottom-up wash so the overlapping headline and any future
+   captions stay legible against the footage */
+.stories-hero-veil {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(43,58,74,0.08) 0%, rgba(43,58,74,0) 35%, rgba(43,58,74,0.16) 100%);
+  pointer-events: none;
+}
+
+/* the now-playing card grew a spotify link, so align its contents
+   to the top instead of centering against the shorter disc */
+.stories-intro .now-card { align-items: flex-start; max-width: 320px; }
+.stories-intro .now-disc-wrap { margin-top: 2px; }
+
+/* now-playing disc */
+.now-disc-wrap {
+  flex-shrink: 0; width: 64px; height: 64px; border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 8px 18px -12px rgba(43,58,74,0.45);
+}
+.now-disc {
+  width: 100%; height: 100%; border-radius: 50%; position: relative;
+  background:
+    radial-gradient(circle at 34% 30%, rgba(255,255,255,0.6), rgba(255,255,255,0) 42%),
+    conic-gradient(from 0deg,
+      var(--hairline-soft) 0deg, var(--steel) 26deg, var(--hairline-soft) 52deg,
+      var(--mist) 96deg, var(--hairline-soft) 130deg, var(--steel) 180deg,
+      var(--hairline-soft) 220deg, var(--mist) 268deg, var(--hairline-soft) 310deg, var(--steel) 360deg);
+  box-shadow: inset 0 0 0 1px var(--hairline-soft);
+  animation: disc-spin 3.6s linear infinite;
+}
+.now-disc::after {
+  content: ''; position: absolute; inset: 0; margin: auto;
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--bone); box-shadow: 0 0 0 1px var(--hairline);
+}
+@keyframes disc-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .now-disc { animation: none; }
+}
+
+.spotify-link {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  margin-top: 0.5rem;
+  font-size: 0.76rem; letter-spacing: 0.03em; color: var(--steel);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.25s var(--ease), color 0.25s var(--ease);
+}
+.spotify-link:hover { color: var(--slate); border-color: var(--hairline); }
+.spotify-icon { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* now-playing + welcome */
+.stories-intro { padding: var(--space-5) 0 var(--space-4); }
+.stories-intro-grid {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--space-4); flex-wrap: wrap;
+}
+.stories-welcome { text-align: right; }
+.date-chips { display: flex; gap: 0.5rem; justify-content: flex-end; margin-bottom: 0.5rem; }
+.chip {
+  font-size: 0.74rem; letter-spacing: 0.04em; color: var(--mist);
+  border: 1px solid var(--hairline); border-radius: 999px; padding: 0.3rem 0.9rem;
+}
+@media (max-width: 640px) {
+  .stories-welcome { text-align: left; }
+  .date-chips { justify-content: flex-start; }
+}
+
+/* scrollable photo carousel */
+.story-cards { padding: var(--space-3) 0 var(--space-5); }
+.carousel-head {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: var(--space-2);
+}
+.carousel-arrows { display: flex; gap: 0.5rem; }
+.carousel-arrow {
+  width: 34px; height: 34px; border-radius: 50%;
+  border: 1px solid var(--hairline); background: var(--paper); color: var(--slate);
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.25s var(--ease);
+}
+.carousel-arrow svg { width: 15px; height: 15px; }
+.carousel-arrow:hover { background: var(--slate); color: var(--bone); border-color: var(--slate); }
+.carousel-arrow:disabled { opacity: 0.3; pointer-events: none; }
+
+/* the viewport now lives inside .wrap, so it's centered with the rest
+   of the page rather than bleeding to the browser edge */
+.carousel-viewport {
+  position: relative;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 14px, #000 calc(100% - 14px), transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 14px, #000 calc(100% - 14px), transparent 100%);
+}
+.story-card-row {
+  display: flex;
+  gap: var(--space-3);
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scroll-behavior: smooth;
+  padding: 0.3rem 2px var(--space-2);
+  scrollbar-width: none;
+}
+.story-card-row::-webkit-scrollbar { display: none; }
+
+/* exactly three cards fit the centered width; a fourth (or more)
+   stays reachable by dragging, the wheel, or the arrow buttons */
+.story-card {
+  flex: 0 0 calc((100% - (2 * var(--space-3))) / 3);
+  scroll-snap-align: start;
+}
+.story-card h3 { font-size: 1.2rem; margin: var(--space-2) 0 0.3rem; }
+
+@media (max-width: 860px) {
+  .story-card { flex-basis: calc((100% - var(--space-3)) / 2); } /* two in view */
+}
+@media (max-width: 640px) {
+  .carousel-arrows { display: none; }
+  .story-card { flex-basis: 82%; } /* one in view, next one peeking */
+}
+
+/* clickable card affordance — visible by default (not hover-only) so the
+   "tap to expand" cue reads on touch devices, not just with a mouse */
+.story-card-clickable { cursor: pointer; }
+.story-card-clickable .img-slot { position: relative; }
+.story-card-expand {
+  position: absolute; top: 10px; right: 10px;
+  width: 30px; height: 30px; border-radius: 50%;
+  background: rgba(43,58,74,0.55);
+  backdrop-filter: blur(2px);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--bone);
+  opacity: 0.85; transform: scale(1);
+  transition: opacity 0.25s var(--ease), transform 0.25s var(--ease), background 0.25s var(--ease);
+}
+.story-card-expand svg { width: 14px; height: 14px; }
+.story-card-clickable:hover .story-card-expand,
+.story-card-clickable:focus-visible .story-card-expand {
+  opacity: 1; transform: scale(1.08); background: rgba(43,58,74,0.75);
+}
+.story-card-clickable:hover .img-slot,
+.story-card-clickable:focus-visible .img-slot { box-shadow: 0 14px 30px -18px rgba(43,58,74,0.5); }
+.story-card-clickable .img-slot.has-img { background: var(--wash); transition: box-shadow 0.3s var(--ease); }
+@media (prefers-reduced-motion: reduce) {
+  .story-card-expand { transition: none; }
+}
+
+/* ============================================================
+   LIGHTBOX — Instagram-style post viewer
+   ============================================================ */
+.lightbox {
+  position: fixed; inset: 0; z-index: 1000;
+  display: flex; align-items: center; justify-content: center;
+}
+.lightbox[hidden] { display: none; }
+.lightbox-backdrop {
+  position: absolute; inset: 0;
+  background: rgba(31, 41, 51, 0.78);
+  backdrop-filter: blur(3px);
+  opacity: 0;
+  transition: opacity 0.35s var(--ease);
+}
+.lightbox.is-open .lightbox-backdrop { opacity: 1; }
+
+.lightbox-shell {
+  position: relative; z-index: 1;
+  width: min(920px, 94vw);
+  max-height: 92vh;
+  display: flex; flex-direction: column;
+  background: var(--paper);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 40px 80px -30px rgba(31,41,51,0.55);
+  opacity: 0;
+  transform: translateY(18px) scale(0.98);
+  transition: opacity 0.35s var(--ease), transform 0.35s var(--ease);
+}
+.lightbox.is-open .lightbox-shell { opacity: 1; transform: translateY(0) scale(1); }
+
+.lightbox-close {
+  position: absolute; top: 12px; right: 12px; z-index: 3;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(31,41,51,0.5); color: var(--bone);
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.25s var(--ease);
+}
+.lightbox-close:hover { background: rgba(31,41,51,0.75); }
+.lightbox-close svg { width: 16px; height: 16px; }
+
+.lightbox-stage {
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--ink);
+  min-height: 320px;
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+.lightbox-media {
+  width: 100%; height: 100%;
+  max-height: min(70vh, 640px);
+  display: flex; align-items: center; justify-content: center;
+}
+.lightbox-media img,
+.lightbox-media video {
+  width: 100%; height: 100%;
+  max-height: min(70vh, 640px);
+  object-fit: contain;
+  display: block;
+  background: var(--ink);
+}
+
+.lightbox-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  z-index: 2;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  color: var(--bone);
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.25s var(--ease);
+}
+.lightbox-arrow:hover { background: rgba(255,255,255,0.24); }
+.lightbox-arrow:disabled { opacity: 0.25; pointer-events: none; }
+.lightbox-arrow svg { width: 18px; height: 18px; }
+.lightbox-prev { left: 12px; }
+.lightbox-next { right: 12px; }
+
+.lightbox-footer {
+  padding: var(--space-3) var(--space-4);
+  border-top: 1px solid var(--hairline-soft);
+  text-align: center;
+}
+.lightbox-dots { display: flex; justify-content: center; gap: 6px; margin-bottom: 0.7rem; }
+.lightbox-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--hairline); transition: background 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.lightbox-dot.is-active { background: var(--steel); transform: scale(1.3); }
+.lightbox-caption {
+  font-family: var(--font-display); font-style: italic;
+  color: var(--slate); font-size: 1.05rem; max-width: 60ch; margin: 0 auto;
+}
+.lightbox-count { font-size: 0.72rem; letter-spacing: 0.1em; color: var(--mist); margin-top: 0.4rem; }
+
+@media (max-width: 640px) {
+  .lightbox-shell { width: 100vw; max-height: 100vh; border-radius: 0; }
+  .lightbox-media, .lightbox-media img, .lightbox-media video { max-height: 56vh; }
+  .lightbox-arrow { width: 34px; height: 34px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lightbox-backdrop, .lightbox-shell, .story-card-expand { transition: none; }
+}
+
+/* swatch strip */
+.swatch-section { padding: var(--space-3) 0; }
+.swatch-row { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); flex-wrap: wrap; }
+.swatch-row .swatch-bar { border: none; flex: 1; min-width: 260px; }
+.about-link { font-size: 0.82rem; color: var(--steel); letter-spacing: 0.03em; border-bottom: 1px solid var(--hairline); padding-bottom: 2px; }
+
+/* NOTEBOOK */
+.notebook { padding: var(--space-5) 0; }
+.notebook-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: var(--space-5); align-items: start; }
+.notebook-title { font-size: 2rem; letter-spacing: 0.04em; }
+.notebook-text .body-text { margin-bottom: var(--space-2); }
+.hashtags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: var(--space-3); }
+.notebook-media { position: relative; }
+.quote-bubble {
+  background: var(--paper);
+  border: 1px solid var(--hairline-soft);
+  border-radius: 16px 16px 16px 4px;
+  padding: var(--space-2) var(--space-3);
+  margin-top: -28px;
+  margin-left: var(--space-4);
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 12px 30px -20px rgba(43,58,74,0.3);
+}
+@media (max-width: 860px) {
+  .notebook-grid { grid-template-columns: 1fr; gap: var(--space-4); }
+  .notebook-media { max-width: 360px; }
+}
+
+/* diary feed */
+.stories-feed-section { padding: var(--space-4) 0 var(--space-6); }
+.stories-feed { max-width: 760px; }
+.story-entry h2 { margin: var(--space-1) 0 var(--space-2); }
+.story-meta { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-1); }
+.story-date { font-family: var(--font-display); font-style: italic; color: var(--steel); font-size: 1rem; }
+.story-tags { display: flex; gap: 0.4rem; }

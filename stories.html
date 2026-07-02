@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recent Stories — Megan Zhang</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Pinyon+Script&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="assets/css/stories.css">
+</head>
+<body>
+
+<div class="loader" aria-hidden="true">
+  <div class="loader-rabbit"><img src="assets/img/rabbit.svg" alt=""></div>
+  <div class="loader-track"></div>
+  <p class="loader-label">just a moment</p>
+</div>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="wordmark">Megan Zhang</a>
+    <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    <div class="nav-links">
+      <a href="index.html">Main</a>
+      <a href="projects.html">Projects</a>
+      <a href="writing.html">Writing</a>
+      <a href="stories.html" class="active">Recent Stories</a>
+      <a href="bookshelf.html">Bookshelf</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===================== BIG OVERLAPPING HEADLINE ===================== -->
+<header class="stories-hero">
+  <div class="wrap">
+    <h1 class="stories-bigtitle">Recent Stories</h1>
+  </div>
+  <div class="wrap">
+    <div class="stories-hero-img" style="--ratio: 16 / 6;">
+      <video
+        class="stories-hero-video"
+        autoplay muted loop playsinline
+        poster="assets/img/stories-banner-poster.jpg"
+        aria-label="A short clip from recent days">
+        <source src="assets/video/stories-banner.mp4" type="video/mp4">
+      </video>
+      <div class="stories-hero-veil"></div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- now-playing + welcome row -->
+  <section class="stories-intro">
+    <div class="wrap stories-intro-grid">
+      <div class="now-card reveal">
+        <div class="now-disc-wrap">
+          <div class="now-disc"></div>
+        </div>
+        <div class="now-meta">
+          <p class="eyebrow">Now Playing</p>
+          <p class="now-title">[ coming up roses ]</p>
+          <p class="now-sub">[ harry styles ]</p>
+          <a href="#" class="spotify-link" target="_blank" rel="noopener">
+            <svg class="spotify-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"/>
+              <path d="M7 10.2c3-1 7-.6 9.4.9M7.6 13.4c2.4-.7 5.6-.4 7.6.8M8.3 16.3c1.9-.5 4.2-.3 5.7.6" stroke-linecap="round"/>
+            </svg>
+            [ listen on spotify ]
+          </a>
+        </div>
+      </div>
+      <div class="stories-welcome reveal">
+        <div class="date-chips">
+          <span class="chip">[ day ]</span>
+          <span class="chip">[ month, year ]</span>
+        </div>
+        <p class="script-accent">welcome to my notes</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- scrollable photo carousel -->
+  <section class="story-cards">
+    <div class="wrap">
+      <div class="carousel-head">
+        <p class="eyebrow">Snapshots</p>
+        <div class="carousel-arrows">
+          <button class="carousel-arrow" data-dir="-1" aria-label="Scroll photos left">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M15 5l-7 7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="carousel-arrow" data-dir="1" aria-label="Scroll photos right">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="carousel-viewport">
+        <div class="story-card-row" tabindex="0" aria-label="Photo carousel, scroll horizontally">
+          <article class="story-card story-card-clickable reveal" data-gallery="psaros-ny" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Open Psaros FinPolicy Trek in New York photo gallery">
+            <div class="img-slot round has-img" style="--ratio: 5 / 4;">
+              <img src="assets/img/stories/psaros-ny/01-thumb.jpg" alt="Psaros FinPolicy Trek in New York">
+              <span class="story-card-expand" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </div>
+            <h3>Psaros FinPolicy Trek in NY (p2.)</h3>
+            <p class="small">Two days and a half learning from alumni, directors, and executives at top financial firms in New York City.</p>
+          </article>
+          <article class="story-card reveal">
+            <div class="img-slot round" style="--ratio: 5 / 4;">
+              <svg class="img-slot-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.6"/><path d="M3 16 l5-4 4 3 3-3 6 5"/></svg>
+              <span class="img-slot-label">photo</span>
+            </div>
+            <h3>Psaros Trek in DC (p1.)</h3>
+            <p class="small">At the White House, NEC, Treasury, CFTC, SEC, and Congress.</p>
+          </article>
+          <article class="story-card reveal">
+            <div class="img-slot round" style="--ratio: 5 / 4;">
+              <svg class="img-slot-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.6"/><path d="M3 16 l5-4 4 3 3-3 6 5"/></svg>
+              <span class="img-slot-label">photo</span>
+            </div>
+            <h3>VA Beach</h3>
+            <p class="small">An impromptu road trip to VA Beach with two of my friends -- and taking in a lot of nature.</p>
+          </article>
+          <article class="story-card reveal">
+            <div class="img-slot round" style="--ratio: 5 / 4;">
+              <svg class="img-slot-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.6"/><path d="M3 16 l5-4 4 3 3-3 6 5"/></svg>
+              <span class="img-slot-label">photo</span>
+            </div>
+            <h3>[ entry title ]</h3>
+            <p class="small">[ another photo — add as many story-card articles here as you like; the row scrolls automatically. ]</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- palette-swatch strip -->
+  <section class="swatch-section">
+    <div class="wrap swatch-row">
+      <div class="swatch-bar">
+        <div class="swatch"><span class="swatch-dot" style="background:#2B3A4A;"></span><span class="swatch-hex">#2B3A4A</span></div>
+        <div class="swatch"><span class="swatch-dot" style="background:#5C7A8A;"></span><span class="swatch-hex">#5C7A8A</span></div>
+        <div class="swatch"><span class="swatch-dot" style="background:#8B98A0;"></span><span class="swatch-hex">#8B98A0</span></div>
+        <div class="swatch"><span class="swatch-dot" style="background:#C8D2D8;"></span><span class="swatch-hex">#C8D2D8</span></div>
+      </div>
+      <a href="#" class="about-link">About these notes ↗</a>
+    </div>
+  </section>
+
+  <!-- NOTEBOOK -->
+  <section class="notebook">
+    <div class="wrap notebook-grid">
+      <div class="notebook-text reveal">
+        <h2 class="notebook-title">Notebook</h2>
+        <div class="breathing-rule short"></div>
+        <p class="body-text muted">
+          to be filled...
+        </p>
+        <p class="body-text muted">
+          to be filled...
+        </p>
+        <div class="hashtags">
+          <span class="hashtag">#tag</span>
+          <span class="hashtag">#tag</span>
+          <span class="hashtag">#tag</span>
+          <span class="hashtag">#tag</span>
+          <span class="hashtag">#tag</span>
+        </div>
+      </div>
+      <div class="notebook-media reveal">
+        <div class="img-slot round" style="--ratio: 4 / 5;">
+          <svg class="img-slot-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.6"/><path d="M3 16 l5-4 4 3 3-3 6 5"/></svg>
+          <span class="img-slot-label">photo</span>
+        </div>
+        <div class="quote-bubble">
+          <p class="small">formulating thoughts into speech...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="breathing-rule"></div></div>
+
+  <!-- diary feed -->
+  <section class="stories-feed-section">
+    <div class="wrap stories-feed">
+      <article class="story-entry reveal">
+        <div class="story-meta">
+          <p class="story-date">[ June, 2026 ]</p>
+          <div class="story-tags"><span class="tag">tag</span><span class="tag">tag</span></div>
+        </div>
+        <h2>interconnected.</h2>
+        <p class="body-text muted"> recently came across a substack article on finding unexpected love -- and making sure you don't stick to
+        a determination without leaving room for exploration. i thought about a recent read of mine by mitch albom, how it had touched on how human
+        connections and stories are always interconnected in strange, unexpected, but nevertheless, heartwarming ways. in reflecting on this, i've been lending
+        a lot of more grace and attention to seeing things in relation to others: place and feeling, poetry and semantics, form and colour. My recent way of
+        seeing the world, thanks to some few strangers on the internet :) </p>
+      </article>
+
+      <div class="breathing-rule"></div>
+
+      <article class="story-entry reveal">
+        <div class="story-meta">
+          <p class="story-date">[ June, 2026 ]</p>
+          <div class="story-tags"><span class="tag">tag</span><span class="tag">tag</span></div>
+        </div>
+        <h2>how certain are we? </h2>
+        <p class="body-text muted"> lately, i've been getting my head up with studying financial formulas, following market trends, and listening to podcasts reporting on the tech boom. all of these things
+        have echoed a feeling of needing to be certain -- a sort of rush to get the numbers right and the hypotheses logically airtight before you pitch it. but, in a world that 
+        actually runs on probabilities, how certain are we really? </p>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <nav class="social-tab" aria-label="Social links">
+      <a href="#" target="_blank" rel="noopener">Beli</a>
+      <a href="#" target="_blank" rel="noopener">GitHub</a>
+      <a href="#" target="_blank" rel="noopener">Goodreads</a>
+      <a href="#" target="_blank" rel="noopener">Letterboxd</a>
+      <a href="#" target="_blank" rel="noopener">Substack</a>
+    </nav>
+    <p class="footer-note">Megan Zhang — 2026</p>
+  </div>
+</footer>
+
+<!-- ===================== LIGHTBOX ===================== -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo post" hidden>
+  <div class="lightbox-backdrop" data-lightbox-close></div>
+  <div class="lightbox-shell">
+    <button class="lightbox-close" data-lightbox-close aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
+    </button>
+
+    <div class="lightbox-stage">
+      <button class="lightbox-arrow lightbox-prev" data-lightbox-prev aria-label="Previous">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 5l-7 7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+
+      <div class="lightbox-media" id="lightboxMedia"></div>
+
+      <button class="lightbox-arrow lightbox-next" data-lightbox-next aria-label="Next">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+
+    <div class="lightbox-footer">
+      <div class="lightbox-dots" id="lightboxDots"></div>
+      <p class="lightbox-caption" id="lightboxCaption"></p>
+      <p class="lightbox-count" id="lightboxCount"></p>
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/main.js"></script>
+<script src="assets/js/stories.js"></script>
+</body>
+</html>

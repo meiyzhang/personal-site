@@ -1,0 +1,75 @@
+/* ============================================================
+   HOME PAGE
+   ============================================================ */
+.hero {
+  position: relative;
+  padding: var(--space-6) 0 var(--space-5);
+  overflow: hidden;
+}
+
+.hero-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: var(--space-5);
+  align-items: center;
+}
+
+.hero-copy h1 { margin: 0.4rem 0 0.2rem; }
+.hero-copy .script-accent { margin-bottom: var(--space-2); }
+.hero-copy .lede { max-width: 30ch; }
+
+.hero-portrait .img-slot {
+  box-shadow: 0 20px 50px -28px rgba(43, 58, 74, 0.4);
+}
+
+@media (max-width: 860px) {
+  .hero-grid { grid-template-columns: 1fr; gap: var(--space-4); }
+  .hero-portrait { max-width: 320px; }
+}
+
+/* ---- about ---- */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+.about-block h2 { margin: var(--space-1) 0 var(--space-2); font-size: 1.5rem; }
+@media (max-width: 860px) {
+  .about-grid { grid-template-columns: 1fr; gap: var(--space-4); }
+}
+
+/* ---- explore ---- */
+.explore-section { padding-top: 0; }
+.explore-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--hairline-soft);
+  border: 1px solid var(--hairline-soft);
+  margin-top: var(--space-3);
+}
+.explore-card {
+  background: var(--paper);
+  padding: var(--space-4) var(--space-3);
+  transition: background 0.25s var(--ease), transform 0.35s var(--ease);
+}
+.explore-card:hover { background: var(--wash); transform: translateY(-3px); }
+.explore-card h3 {
+  margin-bottom: var(--space-1);
+  position: relative;
+  display: inline-block;
+}
+.explore-card h3::after {
+  content: '';
+  position: absolute; left: 0; bottom: -3px;
+  width: 0; height: 1px; background: var(--steel);
+  transition: width 0.3s var(--ease);
+}
+.explore-card:hover h3::after { width: 100%; }
+@media (prefers-reduced-motion: reduce) {
+  .explore-card, .explore-card h3::after { transition: none; }
+  .explore-card:hover { transform: none; }
+}
+@media (max-width: 760px) { .explore-grid { grid-template-columns: 1fr; } }
