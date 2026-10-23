@@ -1,8 +1,7 @@
 /* ============================================================
-   RECENT STORIES — Tokyo-blog inspired
+   RECENT STORIES / plog
    ============================================================ */
 
-/* big overlapping headline over the banner image */
 .stories-hero { padding: var(--space-5) 0 0; }
 .stories-bigtitle {
   font-size: clamp(3rem, 11vw, 8rem);
@@ -10,7 +9,7 @@
   color: var(--slate);
   position: relative;
   z-index: 2;
-  margin-bottom: -0.18em;   /* pull the banner up so the title overlaps it */
+  margin-bottom: -0.18em; 
 }
 .stories-hero-img {
   position: relative;
@@ -25,16 +24,12 @@
   width: 100%; height: 100%;
   object-fit: cover;
 }
-/* faint bottom-up wash so the overlapping headline and any future
-   captions stay legible against the footage */
 .stories-hero-veil {
   position: absolute; inset: 0;
   background: linear-gradient(180deg, rgba(43,58,74,0.08) 0%, rgba(43,58,74,0) 35%, rgba(43,58,74,0.16) 100%);
   pointer-events: none;
 }
 
-/* the now-playing card grew a spotify link, so align its contents
-   to the top instead of centering against the shorter disc */
 .stories-intro .now-card { align-items: flex-start; max-width: 320px; }
 .stories-intro .now-disc-wrap { margin-top: 2px; }
 
@@ -109,8 +104,6 @@
 .carousel-arrow:hover { background: var(--slate); color: var(--bone); border-color: var(--slate); }
 .carousel-arrow:disabled { opacity: 0.3; pointer-events: none; }
 
-/* the viewport now lives inside .wrap, so it's centered with the rest
-   of the page rather than bleeding to the browser edge */
 .carousel-viewport {
   position: relative;
   -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 14px, #000 calc(100% - 14px), transparent 100%);
@@ -127,8 +120,6 @@
 }
 .story-card-row::-webkit-scrollbar { display: none; }
 
-/* exactly three cards fit the centered width; a fourth (or more)
-   stays reachable by dragging, the wheel, or the arrow buttons */
 .story-card {
   flex: 0 0 calc((100% - (2 * var(--space-3))) / 3);
   scroll-snap-align: start;
@@ -136,15 +127,13 @@
 .story-card h3 { font-size: 1.2rem; margin: var(--space-2) 0 0.3rem; }
 
 @media (max-width: 860px) {
-  .story-card { flex-basis: calc((100% - var(--space-3)) / 2); } /* two in view */
+  .story-card { flex-basis: calc((100% - var(--space-3)) / 2); }
 }
 @media (max-width: 640px) {
   .carousel-arrows { display: none; }
-  .story-card { flex-basis: 82%; } /* one in view, next one peeking */
+  .story-card { flex-basis: 82%; } 
 }
 
-/* clickable card affordance — visible by default (not hover-only) so the
-   "tap to expand" cue reads on touch devices, not just with a mouse */
 .story-card-clickable { cursor: pointer; }
 .story-card-clickable .img-slot { position: relative; }
 .story-card-expand {
@@ -170,7 +159,7 @@
 }
 
 /* ============================================================
-   LIGHTBOX — Instagram-style post viewer
+   lightbox stuff
    ============================================================ */
 .lightbox {
   position: fixed; inset: 0; z-index: 1000;
@@ -280,7 +269,7 @@
 .swatch-row .swatch-bar { border: none; flex: 1; min-width: 260px; }
 .about-link { font-size: 0.82rem; color: var(--steel); letter-spacing: 0.03em; border-bottom: 1px solid var(--hairline); padding-bottom: 2px; }
 
-/* NOTEBOOK */
+/* notes */
 .notebook { padding: var(--space-5) 0; }
 .notebook-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: var(--space-5); align-items: start; }
 .notebook-title { font-size: 2rem; letter-spacing: 0.04em; }
@@ -303,7 +292,7 @@
   .notebook-media { max-width: 360px; }
 }
 
-/* diary feed */
+/* diary feed thing */
 .stories-feed-section { padding: var(--space-4) 0 var(--space-6); }
 .stories-feed { max-width: 760px; }
 .story-entry h2 { margin: var(--space-1) 0 var(--space-2); }
