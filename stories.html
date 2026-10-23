@@ -137,7 +137,7 @@
               </span>
             </div>
             <h3>Cherry Blossoms in DC</h3>
-            <p class="small">Tidal Basin, peak bloom -- a quiet morning before the crowds caught up.</p>
+            <p class="small">Tidal Basin at peak bloom! </p>
           </article>
         </div>
       </div>
@@ -267,5 +267,14 @@
 
 <script src="assets/js/main.js"></script>
 <script src="assets/js/stories.js"></script>
+  <script>
+  const now = new Date();
+
+  document.getElementById("dateChipDay").textContent =
+    now.toLocaleDateString("en-US", { weekday: "long" });
+
+  document.getElementById("dateChipMonthYear").textContent =
+    now.toLocaleDateString("en-US", { month: "long" }) + ", " + now.getFullYear();
+</script>
 </body>
 </html>
