@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { type: 'image', src: 'assets/img/stories/psaros-ny/04.jpg', caption: 'On the BTS of CNBC's Fast Money w/ Hoya Alums Guy Adami and Tim Seymour' },
         { type: 'image', src: 'assets/img/stories/psaros-ny/05.jpg', caption: '@Neuberger Berman w/ a very full notebook' },
         { type: 'image', src: 'assets/img/stories/psaros-ny/06.jpg', caption: 'w/ @einsteinofwallst, Peter Tuchman!' },
-        { type: 'image', src: 'assets/img/stories/psaros-ny/07.jpg', caption: 'The whole cohort, live from the news desk.' },
+        { type: 'image', src: 'assets/img/stories/psaros-ny/07.jpg', caption: 'The whole cohort on CNBC's Fast Money' },
         { type: 'image', src: 'assets/img/stories/psaros-ny/08.jpg', caption: 'Swag from the Optiver visit.' },
         { type: 'image', src: 'assets/img/stories/psaros-ny/09.jpg', caption: 'Front pages on the conference table.' },
         { type: 'image', src: 'assets/img/stories/psaros-ny/10.jpg', caption: 'Tea and notes at JPMorgan.' },
